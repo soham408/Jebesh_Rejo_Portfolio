@@ -28,7 +28,7 @@ function ContactUs() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form Data:', formData); // Log form data to check if it's correct
+    console.log('Form Data:', formData); // Log form data to check if it's correct before submitting
     try {
       const response = await databases.createDocument(
         '67ad8967001c42f04938', // database ID
