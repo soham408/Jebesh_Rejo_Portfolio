@@ -96,13 +96,22 @@ export default function YouTubeReel() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Function to go to the previous video
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? youtubeVideos.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? youtubeVideos.length - 1 : prevIndex - 1
+    );
   };
 
+  // Function to go to the next video
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === youtubeVideos.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) => 
+      prevIndex === youtubeVideos.length - 1 ? 0 : prevIndex + 1
+    );
   };
+
+  // Determine how many videos to show based on the screen width
+  const videosToShow = window.innerWidth >= 1024 ? 4 : 1;
 
   return (
     <div className="overflow-hidden py-10 bg-black">
@@ -129,38 +138,42 @@ export default function YouTubeReel() {
           </button>
         </div>
 
-        {/* Video carousel with smooth animation */}
+        {/* Video carousel */}
         <motion.div
-          className="flex justify-center space-x-[100px] transition-all duration-500 ease-in-out"
-          key={currentIndex}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          className="flex justify-center transition-all duration-500 ease-in-out"
         >
-          {youtubeVideos.slice(currentIndex, currentIndex + 4).map((videoId, i) => (
-            <motion.div
-              key={i}
-              className="w-[300px] h-[500px] flex-shrink-0"
-              onMouseEnter={() => setActiveVideo(videoId)}
-              onMouseLeave={() => setActiveVideo(null)}
-              whileHover={{ scale: 1.05 }} // Optional: Add a slight scale effect on hover
-              transition={{ duration: 0.3 }} // Smooth hover effect
-            >
-              <iframe
-                src={`https://www.youtube.com/embed/${videoId}?autoplay=${activeVideo === videoId ? 1 : 0}&mute=1&playlist=${videoId}&loop=1&playsinline=1&controls=0&vq=hd2160`}
-                className="w-full h-full rounded-lg shadow-lg"
-                frameBorder="0"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </motion.div>
-          ))}
+          {/* Show the videos based on screen size */}
+          <div className="overflow-hidden">
+            <div className="flex gap-[50px] flex-wrap justify-center">
+              {/* Show a different number of videos based on screen size */}
+              {youtubeVideos.slice(currentIndex, currentIndex + videosToShow).map((videoId, i) => (
+                <motion.div
+                  key={i}
+                  className="w-full md:w-[300px] lg:w-[350px] h-[500px] flex-shrink-0"
+                  onMouseEnter={() => setActiveVideo(videoId)}
+                  onMouseLeave={() => setActiveVideo(null)}
+                  whileHover={{ scale: 1.05 }} // Optional: Add a slight scale effect on hover
+                  transition={{ duration: 0.3 }} // Smooth hover effect
+                >
+                  <iframe
+                    src={`https://www.youtube.com/embed/${videoId}?autoplay=${activeVideo === videoId ? 1 : 0}&mute=1&playlist=${videoId}&loop=1&playsinline=1&controls=0&vq=hd2160`}
+                    className="w-full h-full rounded-lg shadow-lg"
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </motion.div>
       </div>
     </div>
   );
 }
+
+
 
 
 
