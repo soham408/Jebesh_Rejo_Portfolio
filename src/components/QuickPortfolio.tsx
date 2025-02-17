@@ -76,80 +76,95 @@
 
 // export default QuickPortfolio
 
-// "use client";
+"use client";
 
-// import { motion } from "framer-motion";
-// import { useState } from "react";
-// import { useSwipeable } from "react-swipeable";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
-// const youtubeVideos = [
-//   "h5-k0n5S37w",
-//   "Cqp_dyIe2Ss",
-//   "36PpLSc9fC0",
-//   "uPPYONaM12s",
-//   "pQoG0idfcRE",
-//   "nFks0B9iiE8",
-//   "7902mnaZ594",
-//   "Cqp_dyIe2Ss",
-// ];
+const youtubeVideos = [
+  "h5-k0n5S37w",
+  "Cqp_dyIe2Ss",
+  "36PpLSc9fC0",
+  "uPPYONaM12s",
+  "pQoG0idfcRE",
+  "nFks0B9iiE8",
+  "7902mnaZ594",
+  "Cqp_dyIe2Ss",
+];
 
-// export default function YouTubeReel() {
-//   const [activeVideo, setActiveVideo] = useState<string | null>(null);
-//   const [currentIndex, setCurrentIndex] = useState(0);
+export default function YouTubeReel() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-//   const handlePrev = () => {
-//     setCurrentIndex((prevIndex) => (prevIndex === 0 ? youtubeVideos.length - 1 : prevIndex - 1));
-//   };
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? youtubeVideos.length - 1 : prevIndex - 1));
+  };
 
-//   const handleNext = () => {
-//     setCurrentIndex((prevIndex) => (prevIndex === youtubeVideos.length - 1 ? 0 : prevIndex + 1));
-//   };
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === youtubeVideos.length - 1 ? 0 : prevIndex + 1));
+  };
 
-//   return (
-//     <div className="overflow-hidden py-10 bg-black">
-//       <div className="text-center">
-//         <h2 className="sm:text-4xl text-base text-teal-600 font-semibold tracking-wide uppercase mb-8">
-//           QUICK PORTFOLIO
-//         </h2>
-//       </div>
+  return (
+    <div className="overflow-hidden py-10 bg-black">
+      <div className="text-center">
+        <h2 className="sm:text-4xl text-base text-teal-600 font-semibold tracking-wide uppercase mb-8">
+          QUICK PORTFOLIO
+        </h2>
+      </div>
 
-//       <div className="flex justify-center items-center space-x-4 mt-8">
-//         <button
-//           onClick={handlePrev}
-//           className="text-white bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded"
-//         >
-//           Prev
-//         </button>
-//         <div className="flex justify-center space-x-[100px]">
-//           {youtubeVideos.slice(currentIndex, currentIndex + 4).map((videoId, i) => (
-//             <motion.div
-//               key={i}
-//               className="w-[300px] h-[500px] flex-shrink-0"
-//               onMouseEnter={() => setActiveVideo(videoId)}
-//               onMouseLeave={() => setActiveVideo(null)}
-//               whileHover={{ scale: 1.05 }} // Optional: Add a slight scale effect on hover
-//             >
-//               <iframe
-//                 src={`https://www.youtube.com/embed/${videoId}?autoplay=${activeVideo === videoId ? 1 : 0}&mute=1&playlist=${videoId}&loop=1&playsinline=1&controls=0&vq=hd2160`}
-//                 className="w-full h-full rounded-lg shadow-lg"
-//                 frameBorder="0"
-//                 allow="autoplay; encrypted-media"
-//                 allowFullScreen
-//                 referrerPolicy="no-referrer-when-downgrade"
-//               ></iframe>
-//             </motion.div>
-//           ))}
-//         </div>
-//         <button
-//           onClick={handleNext}
-//           className="text-white bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded"
-//         >
-//           Next
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }
+      <div className="relative flex justify-center items-center mt-8">
+        {/* Navigation buttons */}
+        <div className="absolute top-0 right-0 flex space-x-4 z-10 pt-[500px]">
+          <button
+            onClick={handlePrev}
+            className="text-white bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded"
+          >
+            Prev
+          </button>
+          <button
+            onClick={handleNext}
+            className="text-white bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded"
+          >
+            Next
+          </button>
+        </div>
+
+        {/* Video carousel with smooth animation */}
+        <motion.div
+          className="flex justify-center space-x-[100px] transition-all duration-500 ease-in-out"
+          key={currentIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          {youtubeVideos.slice(currentIndex, currentIndex + 4).map((videoId, i) => (
+            <motion.div
+              key={i}
+              className="w-[300px] h-[500px] flex-shrink-0"
+              onMouseEnter={() => setActiveVideo(videoId)}
+              onMouseLeave={() => setActiveVideo(null)}
+              whileHover={{ scale: 1.05 }} // Optional: Add a slight scale effect on hover
+              transition={{ duration: 0.3 }} // Smooth hover effect
+            >
+              <iframe
+                src={`https://www.youtube.com/embed/${videoId}?autoplay=${activeVideo === videoId ? 1 : 0}&mute=1&playlist=${videoId}&loop=1&playsinline=1&controls=0&vq=hd2160`}
+                className="w-full h-full rounded-lg shadow-lg"
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
+
+
+
 
 // "use client";
 
@@ -183,7 +198,7 @@
 //   const swipeHandlers = useSwipeable({
 //     onSwipedLeft: handleNext,
 //     onSwipedRight: handlePrev,
-//     trackMouse: true,
+//     trackMouse: true, // You can use this option to enable swipe functionality with the mouse as well (for desktop use)
 //   });
 
 //   return (
@@ -194,7 +209,11 @@
 //         </h2>
 //       </div>
 
-//       <div className="flex justify-center items-center space-x-4 mt-8" {...swipeHandlers}>
+//       <div
+//         className="flex justify-center items-center space-x-4 mt-8"
+//         {...swipeHandlers}
+//         style={{ width: "100%" }} // Ensure the swipeable area takes up the full width
+//       >
 //         <button
 //           onClick={handlePrev}
 //           className="text-white bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded"
@@ -211,7 +230,9 @@
 //               whileHover={{ scale: 1.05 }} // Optional: Add a slight scale effect on hover
 //             >
 //               <iframe
-//                 src={`https://www.youtube.com/embed/${videoId}?autoplay=${activeVideo === videoId ? 1 : 0}&mute=1&playlist=${videoId}&loop=1&playsinline=1&controls=0&vq=hd2160`}
+//                 src={`https://www.youtube.com/embed/${videoId}?autoplay=${
+//                   activeVideo === videoId ? 1 : 0
+//                 }&mute=1&playlist=${videoId}&loop=1&playsinline=1&controls=0&vq=hd2160`}
 //                 className="w-full h-full rounded-lg shadow-lg"
 //                 frameBorder="0"
 //                 allow="autoplay; encrypted-media"
@@ -231,90 +252,3 @@
 //     </div>
 //   );
 // }
-
-"use client";
-
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { useSwipeable } from "react-swipeable";
-
-const youtubeVideos = [
-  "h5-k0n5S37w",
-  "Cqp_dyIe2Ss",
-  "36PpLSc9fC0",
-  "uPPYONaM12s",
-  "pQoG0idfcRE",
-  "nFks0B9iiE8",
-  "7902mnaZ594",
-  "Cqp_dyIe2Ss",
-];
-
-export default function YouTubeReel() {
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? youtubeVideos.length - 1 : prevIndex - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === youtubeVideos.length - 1 ? 0 : prevIndex + 1));
-  };
-
-  const swipeHandlers = useSwipeable({
-    onSwipedLeft: handleNext,
-    onSwipedRight: handlePrev,
-    trackMouse: true, // You can use this option to enable swipe functionality with the mouse as well (for desktop use)
-  });
-
-  return (
-    <div className="overflow-hidden py-10 bg-black">
-      <div className="text-center">
-        <h2 className="sm:text-4xl text-base text-teal-600 font-semibold tracking-wide uppercase mb-8">
-          QUICK PORTFOLIO
-        </h2>
-      </div>
-
-      <div
-        className="flex justify-center items-center space-x-4 mt-8"
-        {...swipeHandlers}
-        style={{ width: "100%" }} // Ensure the swipeable area takes up the full width
-      >
-        <button
-          onClick={handlePrev}
-          className="text-white bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded"
-        >
-          Prev
-        </button>
-        <div className="flex justify-center space-x-[100px]">
-          {youtubeVideos.slice(currentIndex, currentIndex + 4).map((videoId, i) => (
-            <motion.div
-              key={i}
-              className="w-[300px] h-[500px] flex-shrink-0"
-              onMouseEnter={() => setActiveVideo(videoId)}
-              onMouseLeave={() => setActiveVideo(null)}
-              whileHover={{ scale: 1.05 }} // Optional: Add a slight scale effect on hover
-            >
-              <iframe
-                src={`https://www.youtube.com/embed/${videoId}?autoplay=${
-                  activeVideo === videoId ? 1 : 0
-                }&mute=1&playlist=${videoId}&loop=1&playsinline=1&controls=0&vq=hd2160`}
-                className="w-full h-full rounded-lg shadow-lg"
-                frameBorder="0"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </motion.div>
-          ))}
-        </div>
-        <button
-          onClick={handleNext}
-          className="text-white bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded"
-        >
-          Next
-        </button>
-      </div>
-    </div>
-  );
-}
