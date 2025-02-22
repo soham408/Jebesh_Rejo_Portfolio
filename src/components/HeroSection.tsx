@@ -18,8 +18,8 @@ function HeroSection() {
               Master the art of Cinematography & Photography
               </h1>
             <p
-            className="mt-4 font-normal text-base md:text-lg text-yellow-200 max-w-lg mx-auto"
-            >Dive into our comprehensive music courses and transform your musical journey today. Whether you are a beginner or looking to refine your skills, join us to unlock your true potential.</p>
+            className="mt-6 font-serif text-base md:text-2xl text-yellow-200 max-w-lg mx-auto"
+            >Capturing your best self and the moments that matter most is what we do.</p>
             <div className="mt-4">
                 <Link href={"/courses"}>
                     <Button

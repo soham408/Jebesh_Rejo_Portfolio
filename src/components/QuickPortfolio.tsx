@@ -269,7 +269,7 @@ export default function YouTubeReel() {
                   transition={{ duration: 0.3 }} // Smooth hover effect
                 >
                   <iframe
-                    src={`https://www.youtube.com/embed/${videoId}?autoplay=${activeVideo === videoId ? 1 : 0}&mute=1&playlist=${videoId}&loop=1&playsinline=1&controls=0&vq=hd2160`}
+                    src={`https://www.youtube.com/embed/${videoId}?autoplay=${activeVideo === videoId ? 1 : 0}&mute=1&playlist=${videoId}&loop=1&playsinline=1&controls=0&vq=hd1080`}
                     className="w-full h-full rounded-lg shadow-lg"
                     frameBorder="0"
                     allow="autoplay; encrypted-media"

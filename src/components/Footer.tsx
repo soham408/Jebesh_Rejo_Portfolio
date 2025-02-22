@@ -1,18 +1,20 @@
-
-
 function Footer() {
   return (
     <footer className="bg-[#d6d0bf] text-black-400 py-12 pl-[100px]">
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-8">
         <div>
-          <h2 className="text-black text-lg font-semibold mb-4">About Us</h2>
-          <p className="mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius provident eum porro animi quisquam ea! Cum sed dolores sapiente laborum!
+          <h2 className="text-black text-lg font-semibold mb-4 font-serif">About Us</h2>
+          <p className="mb-4 font-serif">
+          Vision and Mission <br />
+          Royal Stunning Photography&apos;s vision and mission are centered 
+          around creating timeless images that capture life&apos;s most special 
+          moments, while providing an exceptional customer experience that 
+          keeps clients coming back for more.
           </p>
         </div>
         <div>
-          <h2 className="text-black text-lg font-semibold mb-4">Quick Navigation</h2>
-          <ul>
+          <h2 className="text-black text-lg font-semibold mb-4 font-serif">Quick Navigation</h2>
+          <ul className="font-serif">
             <li>
               <a
                 href="/"
@@ -64,7 +66,7 @@ function Footer() {
           </ul>
         </div>
         <div>
-          <h2 className="text-black text-lg font-semibold mb-4">Follow Us</h2>
+          <h2 className="text-black text-lg font-semibold mb-4 font-serif">Follow Us</h2>
           <div className="flex space-x-4">
             <a
               href="https://www.linkedin.com/in/jebesh-rejo-70956a22b/"
@@ -98,12 +100,12 @@ function Footer() {
             </a>
           </div>
         </div>
-        <div>
+        <div className="font-serif">
           <h2 className="text-black text-lg font-semibold mb-4">Contact Us</h2>
-          <p>New Delhi, India</p>
-          <p>Delhi 10001</p>
-          <p>Email: info@musicschool.com</p>
-          <p>Phone: (123) 456-7890</p>
+          {/* <p>New Delhi, India</p>
+          <p>Delhi 10001</p> */}
+          <p>Email: royalstunningphotography@gmail.com</p>
+          <p>Phone: (+91) 8454004454</p>
         </div>
         </div>
         <p className="text-center text-xs pt-8">© 2025 StudioR20. All rights reserved.</p>
