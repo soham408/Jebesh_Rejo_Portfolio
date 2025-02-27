@@ -86,3 +86,40 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('/fonts/MyCustomFont.woff2') format('woff2'),
+       url('/fonts/MyCustomFont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-custom {
+  font-family: 'MyCustomFont', sans-serif  Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif , ;
+}
+
+
+@font-face {
+  font-family: 'CursiveFont';
+  src: url('/fonts/CursiveFont.woff2') format('woff2'),
+       url('/fonts/CursiveFont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-cursive {
+  font-family: 'CursiveFont', cursive;
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('/fonts/JosefinSans-Regular.woff2') format('woff2'),
+       url('/fonts/JosefinSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-josefin {
+  font-family: 'Josefin Sans', sans-serif;
+}

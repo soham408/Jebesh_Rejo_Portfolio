@@ -229,9 +229,9 @@ export default function YouTubeReel() {
   const videosToShow = isMobile ? 1 : 4;
 
   return (
-    <div className="overflow-hidden py-10 bg-black">
+    <div className="overflow-hidden py-10 bg-[#f2f3eb]">
       <div className="text-center">
-        <h2 className="sm:text-4xl text-base text-teal-600 font-semibold tracking-wide uppercase mb-8">
+        <h2 className="sm:text-4xl text-base text-black-600 font-semibold tracking-wide uppercase mb-8">
           QUICK PORTFOLIO
         </h2>
       </div>

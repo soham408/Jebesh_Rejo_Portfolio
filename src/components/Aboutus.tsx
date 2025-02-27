@@ -5,11 +5,15 @@ function Aboutus() {
 
 
   return (
-    <div className="py-12 bg-[#ffc01d]">
+    <div className="py-12 bg-[#f2f3eb]">
         <div>
             <div className="text-center">
-                <h2 className="sm:text-4xl text-base text-teal-600 font-semibold tracking-wide uppercase">About Us</h2>
-                <p className="mt-[70px] text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl ">Lorem, ipsum dolor sit amet consectetur <br /> adipisicing elit. Enim alias explicabo deserunt, <br /> doloremque temporibus voluptates!</p>
+                <h2 className="sm:text-4xl text-base text-black-600 font-semibold tracking-wide uppercase">About Us</h2>
+                <p className="mt-[50px] text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl ">Vision and Mission : <br />
+          Royal Stunning Photography&apos;s <br /> vision and mission are centered 
+          around <br /> creating timeless images that capture life&apos;s <br /> most special 
+          moments, while providing an exceptional <br /> customer experience that 
+          keeps clients coming back for more.</p>
             </div>
         </div>
         <div className="mt-10 mx-8">
