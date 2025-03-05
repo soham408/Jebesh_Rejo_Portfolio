@@ -241,13 +241,13 @@ export default function YouTubeReel() {
         <div className="absolute top-0 right-0 flex space-x-4 z-10 pt-[500px]">
           <button
             onClick={handlePrev}
-            className="text-white bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded"
+            className="text-black bg-[#f2f3eb] hover:bg-teal-700 px-4 py-2 rounded"
           >
             Prev
           </button>
           <button
             onClick={handleNext}
-            className="text-white bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded"
+            className="text-black bg-[#fad02c] hover:bg-teal-700 px-4 py-2 rounded"
           >
             Next
           </button>

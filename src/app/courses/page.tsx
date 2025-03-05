@@ -7,8 +7,8 @@ import Link from "next/link";
 
 function page() {
   return (
-    <div className="min-h-screen bg-[#ffc01d] py-12 pt-36">
-        <h1 className="text-lg md:text-7xl text-center font-sans font-bold mb-8 text-white">All courses ({courseData.courses.length})</h1>  
+    <div className="min-h-screen bg-[#f2f3eb] py-12 pt-36">
+        <h1 className="text-lg md:text-7xl text-center font-sans font-bold mb-8 text-black">All courses ({courseData.courses.length})</h1>  
         <div className="flex flex-wrap justify-center">
             {courseData.courses.map((course) => (
                 <CardContainer key={course.id} className="inter-var m-4">

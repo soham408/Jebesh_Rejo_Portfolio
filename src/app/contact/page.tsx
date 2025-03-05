@@ -50,7 +50,7 @@ function ContactUs() {
   };
 
   return (
-    <div className="min-h-screen bg-[#ffc01d] dark:bg-gray-900 py-12 pt-[100px] relative">
+    <div className="min-h-screen bg-[#f2f3eb] dark:bg-gray-900 py-12 pt-[100px] relative">
       {/* Ensure the container is relative */}
       {/* BackgroundBeams with adjusted z-index */}
       <BackgroundBeams className="absolute top-0 left-0 w-full h-full z-0" />

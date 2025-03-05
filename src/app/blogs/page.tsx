@@ -39,7 +39,7 @@ export default function AnimatedTestimonialsDemo() {
     },
   ];
   return(
-    <div className="pt-[150px] bg-[#ffc01d] min-h-screen">
+    <div className="pt-[150px] bg-[#f2f3eb] min-h-screen">
     <AnimatedTestimonials testimonials={testimonials} />
     </div>
   );

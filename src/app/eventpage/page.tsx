@@ -15,7 +15,7 @@ import {
 
 export default function BentoGridDemo() {
   return (
-    <div className="bg-[#ffc01d] min-h-screen pt-8">
+    <div className="bg-[#f2f3eb] min-h-screen pt-8">
       <div className="max-w-4xl mx-auto mt-20">
         <h2 className="sm:text-4xl text-base text-black-600 font-semibold tracking-wide uppercase text-center pt-20">
           Event Photography
